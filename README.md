@@ -11,7 +11,7 @@
 忽略
 
 ## 安装 Istio
- 获取安装包YAML项目
+ 从项目中获取安装YAML文件
  ``` bash
  git clone https://github.com/liyanyanli/example-istio.git
  ```
