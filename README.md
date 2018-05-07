@@ -30,20 +30,30 @@
  ```
 
 ## Istio 规则配置
-流量管理：将“reviews”服务100％的传入流量发送到“v1”版本
-``` yaml
-apiVersion: config.istio.io/v1alpha2
-kind: RouteRule
-metadata:
-  name: reviews-default
-spec:
-  destination:
-    name: reviews
-  route:
-  - labels:
-      version: v1
-    weight: 100
+**以下例子均以bookinfo为测试应用**
+
+Bookinfo应用程序分为四个独立的微服务：
+- productpage：productpage microservice调用详细信息并查看微服务来填充页面
+- details：细节微服务包含书籍信息
+- reviews：评论microservice包含书评。它也称为评级微服务
+- ratings：评级微服务包含伴随书评的书籍排名信息
+
+有3个版本的reviews：
+- 版本v1不会调用评分服务
+- 版本v2调用评分服务，并将每个评分显示为1至5个黑星
+- 版本v3调用评分服务，并将每个评分显示为1到5个红色星星
+
+![Bookinfo](../image/withistio.svg)
+
+**流量管理**：将“reviews”服务100％的传入流量发送到“v1”版本
+配置前：
+
+``` bash
+istioctl create -f example/policy/RouteRule.yaml
 ```
+配置后：
+
+**更多规则配置例子见 /example/policy/kube**
 
 
 
