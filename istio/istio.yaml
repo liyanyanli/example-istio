@@ -1395,7 +1395,7 @@ metadata:
 spec:
   group: config.istio.io
   names:
-    kind: RouteRule
+    kind: RouteRule.yaml
     listKind: RouteRuleList
     plural: routerules
     singular: routerule
