@@ -33,10 +33,10 @@
 **以下例子均以bookinfo为测试应用**
 
 Bookinfo应用程序分为四个独立的微服务：
-- productpage：productpage microservice调用详细信息并查看微服务来填充页面
-- details：细节微服务包含书籍信息
-- reviews：评论microservice包含书评。它也称为评级微服务
-- ratings：评级微服务包含伴随书评的书籍排名信息
+- productpage： 调用details和reviews服务，展示页面
+- details：包含书籍信息
+- reviews：包含书评
+- ratings：包含伴随书评的书籍排名信息
 
 有3个版本的reviews：
 - 版本v1不会调用评分服务
@@ -46,12 +46,18 @@ Bookinfo应用程序分为四个独立的微服务：
 ![Bookinfo](./image/withistio.svg)
 
 **流量管理**：将“reviews”服务100％的传入流量发送到“v1”版本
-配置前：
 
+配置前：
+![v1](./image/v1.png) 或者 ![v2](./image/v2.png) 或者 ![v3](./image/v3.png)
+
+下发配置：
 ``` bash
 istioctl create -f example/policy/RouteRule.yaml
 ```
+
 配置后：
+
+永远都是![v1](./image/v1.png)
 
 **更多规则配置例子见 /example/policy/kube**
 
