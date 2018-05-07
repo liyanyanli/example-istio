@@ -43,7 +43,7 @@ Bookinfo应用程序分为四个独立的微服务：
 - 版本v2调用评分服务，并将每个评分显示为1至5个黑星
 - 版本v3调用评分服务，并将每个评分显示为1到5个红色星星
 
-![Bookinfo](../image/withistio.svg)
+![Bookinfo](./image/withistio.svg)
 
 **流量管理**：将“reviews”服务100％的传入流量发送到“v1”版本
 配置前：
